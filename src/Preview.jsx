@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
+//import DOMPurify from  "dompurify";
 
 function Preview({ text }){
     const [markedText, setMarkedText] = useState("");
     marked.use({
         gfm:true,
-        breaks:true,
-       
+        breaks:true
     });
-    useEffect(()=>{         
-      setMarkedText(marked.parse(text));
+    useEffect(()=>{
+        //const purifiedText = DOMPurify.sanitize(text);          
+        setMarkedText({__html: marked.parse(text)});
     },[ text ]);
     return(
-        <div id="preview">{ markedText}</div>
+        <div id="preview" dangerouslySetInnerHTML={ markedText }></div>
     );
 }
 export default Preview;
