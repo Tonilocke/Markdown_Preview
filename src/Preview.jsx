@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 //import DOMPurify from  "dompurify";
 
 function Preview({ text }){
-    const [markedText, setMarkedText] = useState("");
+    const [markedText, setMarkedText] = useState();
     marked.use({
         gfm:true,
         breaks:true
